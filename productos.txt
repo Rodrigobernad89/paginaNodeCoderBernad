@@ -1,0 +1,20 @@
+[
+    {
+        "title": "Escuadra",
+        "price": 215,
+        "thumbnail": null,
+        "id": 1
+    },
+    {
+        "title": "Regla",
+        "price": 220,
+        "thumbnail": null,
+        "id": 2
+    },
+    {
+        "title": "Goma de Borrar",
+        "price": 100,
+        "thumbnail": null,
+        "id": 3
+    }
+]
