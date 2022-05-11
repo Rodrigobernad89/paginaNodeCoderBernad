@@ -59,6 +59,18 @@ class Contenedor {
         return product;
     }
 
+    update(prod, id) {
+        const newProduct = { id: Number(id), ...prod }
+        const index = data.findIndex(p => p.id == id)
+        if (index !== -1) {
+            data[index] = newProduct
+            return newProduct
+        } else {
+            return { error: 'producto no encontrado' }
+        }
+    }
+
+
 }
 
 
