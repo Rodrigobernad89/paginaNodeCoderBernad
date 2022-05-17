@@ -1,5 +1,7 @@
 const express = require('express');
 const { Router } = express;
+const handlebars = require('express-handlebars')
+
 const Contenedor = require('./Contenedor');
 
 
@@ -11,12 +13,29 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'))
 
+app.engine('handlebars', handlebars.engine())
+
+app.set('views', './public/views')
+app.set('view engine', 'handlebars')
+
+
 const productosApi = new Router();
 
 const c = new Contenedor;
 
 productosApi.get('/', (req, res) => {
-    res.send(c.getAll())
+    const productos = c.getAll();
+    /* 
+     productos.forEach(producto => {
+         data = {
+             title: producto.title,
+             price: producto.price,
+             thumbnail: producto.thumbnail
+         }
+     }); */
+
+    res.render('datos', { productos: productos, listExists: productos.length >= 1 })
+
 })
 
 productosApi.get('/:id', (req, res) => {
@@ -24,8 +43,15 @@ productosApi.get('/:id', (req, res) => {
     res.send(c.getById(num));
 })
 
-productosApi.post('/', (req, res) => {
-    res.send(c.save(req.body));
+
+productosApi.post('/', async (req, res) => {
+    try {
+        c.save(req.body);
+        res.redirect('/');
+    } catch (error) {
+        console.log(error);
+    }
+
 })
 
 productosApi.put('/:id', (req, res) => {

@@ -1,1 +1,0 @@
-[{"title":"Escuadra","price":215,"thumbnail":null,"id":1},{"title":"Regla","price":220,"thumbnail":null,"id":2},{"title":"transportador","price":240,"thumbnail":null,"id":3},{"title":"goma","price":"200","thumbnail":"null","id":4}]

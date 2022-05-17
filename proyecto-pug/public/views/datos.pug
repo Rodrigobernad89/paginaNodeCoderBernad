@@ -1,0 +1,26 @@
+extends main
+
+block body
+
+    h1 Vista de Productos
+
+    if listExists 
+        table.table 
+            tr
+                th Nombre
+                th Precio
+                th Foto
+            tbody 
+                each val in productos
+                    tr
+                        td #{val.title}
+                        td #{val.price}
+                        td
+                            img(src=val.thumbnail width="42" height="42") 
+    else
+        h3 NO SE ENCONTRARON PRODUCTOS
+
+    button.boton-enviar
+        a(href="/") Crear Producto 
+        
+    
