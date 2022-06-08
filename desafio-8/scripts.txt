@@ -1,0 +1,23 @@
+1-  use ecommerce
+2-  db.createCollection('mensajes')
+    db.createCollection('productos')
+3-  db.productos.insertMany([{title:'Goma',price:250,thumbnail:"https://cdn2.iconfinder.com/data/icons/basic-flat-icon-set/128/eraser-256.png"},{title:'Candado',price:600,thumbnail:"https://cdn3.iconfinder.com/data/icons/streamline-icon-set-free-pack/48/Streamline-68-256.png"},{title:'Lapiz',price:120,thumbnail:"https://cdn1.iconfinder.com/data/icons/office-222/91/General_Office_10-256.png"},{title:'Regla',price:350,thumbnail:"https://cdn1.iconfinder.com/data/icons/office-222/91/General_Office_10-256.png"},{title:'Compás',price:450,thumbnail:"https://cdn1.iconfinder.com/data/icons/office-222/91/General_Office_10-256.png"},{title:'Escuadra',price:325,thumbnail:"https://cdn1.iconfinder.com/data/icons/office-222/91/General_Office_10-256.png"},{title:'Transportador',price:325,thumbnail:"https://cdn1.iconfinder.com/data/icons/office-222/91/General_Office_10-256.png"},{title:'Plasticola',price:120,thumbnail:"https://cdn1.iconfinder.com/data/icons/office-222/91/General_Office_10-256.png"},{title:'Crayones',price:1500,thumbnail:"https://cdn1.iconfinder.com/data/icons/office-222/91/General_Office_10-256.png"},{title:'Tempera',price:550,thumbnail:"https://cdn1.iconfinder.com/data/icons/office-222/91/General_Office_10-256.png"}])
+    db.mensajes.insertMany([{email:'juancarlos@mimail.com',date:'2017-08-1912:17:55',message:'Hola'},{email:'adrianl@mimail.com',date:'2017-10-21 12:30:55',message:'Como estas'},{email:'Marcelas@mimail.com',date:'2017-11-07 15:32:11',message:'Bien y vos'},{email:'andreas@mimail.com',date:'2017-12-21 18:17:23',message:'aca andamos'},{email:'luis@mimail.com',date:'2018-02-15 07:27:12',message:'cuanto es el precio'},{email:'jose@mimail.com',date:'2018-03-10 09:45:25',message:'cuales son los medios de pago'},{email:'fernanda@mimail.com',date:'2018-07-28 17:20:55',message:'se puede con tarjeta'},{email:'roman@mimail.com',date:'2018-10-11 12:17:55',message:'el envio es con o sin costo'},{email:'luisa@mimail.com',date:'2018-11-12 09:27:03',message:'donde puedo retirarlo'},{email:'carla@mimail.com',date:'2019-03-08 10:52:28',message:'llevo 3 articulos'},{email:'carlos@mimail.com',date:'2019-09-19 20:27:45',message:'cuales son los productos en promocion'}])
+4-  db.productos.find()
+    db.mensajes.find()
+5-  db.productos.find().count()
+    db.mensajes.find().count()
+7-  A)db.productos.insertOne({title:'Sacapuntas',price:220,thumbnail:"https://cdn2.iconfinder.com/data/icons/basic-flat-icon-set/128/eraser-256.png"})
+    b)  i)  db.productos.find({price:{$lt:1000}})
+        ii) db.productos.find({price:{$gt:1000,$lt:3000}})
+        iii)db.productos.find({price:{$gt:3000}})
+        iv) db.productos.find().sort({price:1}).limit(1).skip(2)
+    c)db.productos.updateMany({},{$inc:{stock:100}})
+    d)db.productos.update({price:{$gt:4000}},{$set:{stock:0}})
+    e)db.productos.deleteMany({price:{$lt:1000}})
+
+8-  use admin
+    db.createUser({user:'pepe',pwd:'asd456',roles:[{role:'read',db:'ecommerce'}]})
+    mongo -u pepe -p asd456
+    use ecommerce
+    db.productos.insertOne({title:'Sacapuntas',price:220,thumbnail:"https://cdn2.iconfinder.com/data/icons/basic-flat-icon-set/128/eraser-256.png"})
