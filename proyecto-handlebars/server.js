@@ -81,7 +81,6 @@ server.on("error", error => console.log(`Error en servidor ${error}`))
 /* app.get('/productos', (req, res) => {
     res.send(c.getAll())
 })
-
 app.get('/productoRandom', (req, res) => {
     res.send(c.random());
 }) */

@@ -1,1 +1,0 @@
-require('./db-script.js').DBscript()
